@@ -4,7 +4,7 @@
 
     <style>
 body {background-color: #d7d8edff;}
-h1   {color: blue;}
+h1   {color: #171718ff;}
 p    {color: grey;}
 div {
   width: 1400px;
@@ -12,7 +12,7 @@ div {
   background-color: #ffffffff;
   border-radius: 25px;
   padding: 10px;
-  margin: 20px;
+  margin: 15px;
   display: flex;
   align-items: center; 
   gap: 20px;  
