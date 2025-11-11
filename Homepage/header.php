@@ -1,47 +1,78 @@
 <!doctype html>
 <html>
   <head>
-
-    <style>
-body {background-color: #d7d8edff;}
-h1   {color: #171718ff;}
-p    {color: grey;}
-div {
-  width: 1400px;
-  border: 5px #5b82b6ff;
-  background-color: #ffffffff;
-  border-radius: 25px;
-  padding: 10px;
-  margin: 15px;
-  display: flex;
-  align-items: center; 
-  gap: 20px;  
-}
-.header-text h1 {
-  margin-right: 450px; 
-}
-
-</style>
-
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title><?= isset($PageTitle) ? $PageTitle : "Default Title"?></title>
-    <!-- Additional tags here -->
-    <?php if (function_exists('customPageHeader')){
-      customPageHeader();
-    }?>
-    <body>
-    <header>
-      <div class="header-text">
-        
-        <img src="Logo.png">
-        <h1>Tierheim</h1>
-        <img src="Login.png">
-        <p>Telefonnummer</p>
-        <img src="Notruf.png">
-         <p>Telefonnummer</p>
-        <img src="Kontakt.png">
-         <p>Telefonnummer</p>
-      </div>
-    </header>
+    <title>Tierheim</title>
+    <style>
+      body {
+        background-color: #d7d8edff;
+        font-family: sans-serif;
+      }
+
+      h1 {
+        color: #171718ff;
+      }
+
+      p {
+        color: grey;
+      }
+
+      /* Großer weißer Container */
+      .header-text {
+        width: 1400px;
+        border: 5px solid #5b82b6ff;
+        background-color: #ffffffff;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 15px auto;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-buttons {
+        margin-top: 20px;
+        text-align: right; 
+        item-align: right;
+        margin-right: 50px;
+        margin-left: 20px;
+      }
+
+      a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: blue;
+    background-color: white;
+    text-decoration: none;
+}
+
+      button:hover {
+        background-color: #4170aaff;
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <div class="header-text">
+        <img src="Logo.png" alt="Logo">
+        <h1>Tierheim</h1>
+        <img src="Login.png" alt="Login">
+        <p>Telefonnummer</p>
+        <img src="Notruf.png" alt="Notruf">
+        <p>Telefonnummer</p>
+        <img src="Kontakt.png" alt="Kontakt">
+        <p>Telefonnummer</p>
+      </div>
+
+      <div class="nav-buttons">
+
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/AboutUs.php" class="button">About Us</a>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Tiernotruf</a>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Unsere Tiere</a>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Homepage</a>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Login</a>
+
+      </div>
+    </header>
+  </body>
+</html>
