@@ -11,6 +11,8 @@
 
       h1 {
         color: #171718ff;
+         text-align: center;
+        item-align: center;
       }
 
       p {
@@ -24,8 +26,8 @@
         border: 5px solid #5b82b6ff;
         background-color: #ffffffff;
         border-radius: 25px;
-        padding: 15px;
-        margin: 15px auto;
+        padding: 20px;
+        margin: 0px auto;
         text-align: center;
         item-align: center;
         display: flex;
@@ -33,26 +35,34 @@
       }
 
       .nav-buttons {
-        margin-top: 5px;
+        margin-top: 0px;
+        margin-bottom: 20px;
         border-radius: 10px;
         text-align: right; 
         item-align: right;
-        margin-right: 50px;
-        margin-left: 20px;
+        margin-right: 30px;
       }
 
       a.button {
-    padding: 1px 6px;
-    border: 1px outset buttonborder;
-    border-radius: 3px;
-    color: blue;
-    background-color: white;
-    text-decoration: none;
-}
+    padding: 7px;
+    border: 2px solid black;
+    margin: 0px;
+    border-radius: 4px;
+    color: black;
+    background-color: #94b3dbff;
+    text-decoration: bold;
+    }
 
-      button:hover {
-        background-color: #4170aaff;
-      }
+   a:link {
+  color: black;
+  text-decoration: none;
+    }
+
+    button:hover {
+        background-color: #242170ff;
+    }
+
+
     </style>
   </head>
   <body>

@@ -20,6 +20,7 @@ h2   {color: #171718ff;
     margin: auto;
     font-family:arial; 
     font-size: 45px;
+    margin:15px;
   }
 
 .light-text   
@@ -41,7 +42,7 @@ h2   {color: #171718ff;
   border: 5px #5b82b6ff;
   background-color: #ffffffff;
   border-radius: 25px;
-  padding: 10px;
+  padding: 1px;
   margin: 5px;
   display: flex;
   align-items: center; 
@@ -69,7 +70,9 @@ h2   {color: #171718ff;
   gap: 2px;  
    margin-left: 30px;
 }
-.TESTIMAGE {
+
+
+.img-box {
   width: 1400px;
   border: 2px solid #5b82b6ff;
   background-color: #ffffffff;
@@ -98,7 +101,7 @@ h2   {color: #171718ff;
 .info-text{
   color: black;
   font-family:arial;
-  font-size: 17px;
+  font-size: 20px;
   text-align: left;
   margin-left: 15px;
   margin-right: 15px;
