@@ -1,22 +1,40 @@
 
-body {background-color: #d7d8edff;}
+body {background-color: rgb(233, 237, 239);}
 
-h1   {color: #171718ff;
+.center-h1   {color: #171718ff;
     align-items: center;
     margin: auto;
     text-align: center;
     font-family:arial; 
   }
 
-h2   {color: #171718ff;
-    align-items: center;
+.left-h1   {color: #171718ff;
+    align-items: left;
     margin: auto;
-    text-align: center;
-    font-family:arial 
+    text-align: left;
+    font-family:arial; 
   }
 
-p    {color: grey;
+h2   {color: #171718ff;
+    text-align: left; 
+    margin: auto;
+    font-family:arial; 
+    font-size: 45px;
+  }
+
+.light-text   
+ {color: grey;
     font-family:arial}
+
+.big-text
+{
+  font-size: 20px;
+  color: black;
+  font-family:arial;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 
 .header-text div {
   width: 1400px;
@@ -41,16 +59,27 @@ p    {color: grey;
   gap: 2px;  
 }
 .text-div {
-  width: 1000px;
+  width: 1400px;
   background-color: #ffffffff;
+  border: 5px #5b82b6ff;
+  border-radius: 20px;
   padding: 2px;
   margin: 2px;
-  display: flex;
-  align-items: center; 
-  text-align: center;
+
   gap: 2px;  
-   margin-left: 50px;
-   border-radius: 0; 
+   margin-left: 30px;
+}
+.TESTIMAGE {
+  width: 1400px;
+  border: 2px solid #5b82b6ff;
+  background-color: #ffffffff;
+  border-radius: 25px;
+  padding: 10px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 }
 .header-text h1 {
   margin-right: 450px; 
@@ -60,6 +89,11 @@ p    {color: grey;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+.left-aligned {
+  display: block;
+  margin-left: 10px;
+  margin-right: auto;
 }
 .info-text{
   color: black;

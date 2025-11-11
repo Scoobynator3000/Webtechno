@@ -17,20 +17,24 @@
         color: grey;
       }
 
-      /* Großer weißer Container */
+
       .header-text {
-        width: 1400px;
+        width: 1480px;
+        height: 50px;
         border: 5px solid #5b82b6ff;
         background-color: #ffffffff;
         border-radius: 25px;
-        padding: 20px;
+        padding: 15px;
         margin: 15px auto;
+        text-align: center;
+        item-align: center;
         display: flex;
         gap: 20px;
       }
 
       .nav-buttons {
-        margin-top: 20px;
+        margin-top: 5px;
+        border-radius: 10px;
         text-align: right; 
         item-align: right;
         margin-right: 50px;
@@ -66,10 +70,10 @@
 
       <div class="nav-buttons">
 
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/index.php" class="button">Homepage</a>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Unsere Tiere</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/AboutUs.php" class="button">About Us</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Tiernotruf</a>
-        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Unsere Tiere</a>
-        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Homepage</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Login</a>
 
       </div>
