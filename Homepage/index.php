@@ -12,9 +12,7 @@ include_once('header.php');
 
 <div>
         
-    <h2>Willkommen auf der Tierheim Homepage!</h2>
-
-
+    <h2>Willkommen auf der Tierheim Homepage! </h2>
 <p><img src="Homepage-Foto.png" alt="Homepage Foto" style="width:1700px; height:260px;" align-items: left;></p>
 </div>
 

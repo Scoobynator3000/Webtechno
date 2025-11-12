@@ -76,6 +76,7 @@
         <p>Telefonnummer</p>
         <img src="Kontakt.png" alt="Kontakt">
         <p>Telefonnummer</p>
+        <img src="Dackel.gif" alt="Dackel GIF" style="width:180px; height:80px; float:right; margin:10 5 10px 20px;">
       </div>
 
       <div class="nav-buttons">
