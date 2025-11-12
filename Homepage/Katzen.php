@@ -23,6 +23,10 @@ include_once('header.php');
   </h1>
 </div>
 
+<div class="img-box">
+    
+ <img src="Katze-Katzen.jpg" alt="Katze" style="width:500px; height:270px;">
+</div>
 
 
 

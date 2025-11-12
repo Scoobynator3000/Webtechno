@@ -23,6 +23,11 @@ include_once('header.php');
   </h1>
 </div>
 
+<div class="img-box">
+    
+ <img src="Hund-Hunde.webp" alt="Hund" style="width:500px; height:270px;">
+</div>
+
 
 
 
