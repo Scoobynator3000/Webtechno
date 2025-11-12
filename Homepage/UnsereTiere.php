@@ -13,32 +13,33 @@ include_once('header.php');
 <div>
         
     <h2>Unsere Tiere:</h2>
+    <p class="big-text"> An welcher Tierart sind Sie interessiert?</p>
 
 </div>
 
 <div class="img-box">
    <h1 class="left-h1">
-    Hunde
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/Hunde.php" class="button">Hunde</a>
   </h1>
   <br>
-  <img src="Hund1.png" alt="Hund" style="width:300px; height:270px;">
+  <img src="Hund1.png" alt="Hund" style="width:240px; height:210px;">
 
    <h1 class="left-h1">
-    Katzen
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/Katzen.php" class="button">Katzen</a>
 </h1>
   <br>
-  <img src="Katze1.png" alt="Katze" style="width:300px; height:270px;">
+  <img src="Katze1.png" alt="Katze" style="width:240px; height:210px;">
 
     <h1 class="left-h1">
-    Kleintiere
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/Kleintiere.php" class="button">Kleintiere</a>
 </h1>
    <br>
-  <img src="Kleintier1.png" alt="Kleintier" style="width:300px; height:270px;">
+  <img src="Kleintier1.png" alt="Kleintier" style="width:240px; height:210px;">
    <h1 class="left-h1">
-    Vögel
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/Vogel.php" class="button">Vögel</a>
 </h1>
    <br>
-  <img src="Vogel1.png" alt="Vogel" style="width:300px; height:270px;">
+  <img src="Vogel1.png" alt="Vogel" style="width:240px; height:210px;">
 </div>
 
 

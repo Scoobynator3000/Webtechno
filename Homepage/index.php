@@ -18,7 +18,7 @@ include_once('header.php');
 
 
 <div class="img-box">
-   <h1 class="left-h1">
+   <h1 class="left-h1" font-decoration: underlined;>
     1300
   </h1>
   vermittelte Tiere im Jahr <br>
