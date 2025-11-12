@@ -28,7 +28,7 @@ p {
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8 col-12">
       <div class ="text-div">
         <p class ="info-text"> Wir sind das Pissy Tierheim!</br> </br>
         Das Pissy Tierheim gibt es seit September 2025 und ist ein rein fiktionaler Ort in den Köpfen von Helm und Laris. </br></br>
@@ -36,7 +36,7 @@ p {
         Das Pissy Tierheim liegt seit der Erstehung im 15. Bezirk, dem Herzstück von Wien.</p>
       </div>
     </div>
-    <div class="col-md-auto">
+    <div class="col-4 col-12">
       <div class="image">
         <p><img src="Rattis.jpeg" alt="Ratten im Tierheim Foto" style="width:100px; height:50px;" class="center"></img></p>
     </div>
