@@ -24,6 +24,10 @@ include_once('header.php');
    
 </div>
 
+<div class="img-box">
+    
+ <img src="Ratten-Kleintiere.jpeg" alt="Ratten" style="width:500px; height:270px;">
+</div>
 
 
 
