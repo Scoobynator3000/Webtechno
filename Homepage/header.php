@@ -91,7 +91,7 @@
         <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Unsere Tiere</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/AboutUs.php" class="button">About Us</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Tiernotruf</a>
-        <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Login</a>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Login.php" class="button">Login</a>
 
       </div>
     </header>
