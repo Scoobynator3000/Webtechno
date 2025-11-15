@@ -1,63 +1,38 @@
-<!DOCTYPE html>
 <?php
 $PageTitle = "AboutUs";
-include_once('header.php');
+include_once('header2.php');
 ?>
-<link 
-  rel="stylesheet" 
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-  crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
 
-<!-- <style>
-p {
-    background: linear-gradient(black, red);
-    -webkit-background-clip: text;
-            background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family:arial
-    
-}
-</style> -->
-<div class="title">
-    <h1> Seit 2025 </h1>
+<div class="title text-center mt-4">
+    <h1>Seit 2025</h1>
 </div>
 
-
-
-<div class="container">
+<div class="container mt-4">
   <div class="row">
-    <div class="col-md-8 col-12">
-      <div class ="text-div">
-        <p class ="info-text"> Wir sind das Pissy Tierheim!</br> </br>
-        Das Pissy Tierheim gibt es seit September 2025 und ist ein rein fiktionaler Ort in den Köpfen von Helm und Laris. </br></br>
-        Seit Jahren beschäftigen wir uns aktiv mit dem Tierschutz; sei es durch die Betreuung der 3 größten Taubenschläge in Wien, das Adoptieren von geretteten Laborratten oder den Erwerb von Patenschaften für bedrohte Tierarten.<br></br>
-        Das Pissy Tierheim liegt seit der Erstehung im 15. Bezirk, dem Herzstück von Wien.</p>
+
+    <!-- TEXT SPALTE -->
+    <div class="col-12 col-md-8">
+      <div class="text-div">
+        <p class="info-text">
+          Wir sind das Pissy Tierheim!<br><br>
+          Das Pissy Tierheim gibt es seit September 2025 und ist ein rein fiktionaler Ort in den Köpfen von Helm und Laris.<br><br>
+          Seit Jahren beschäftigen wir uns aktiv mit dem Tierschutz; sei es durch die Betreuung der 3 größten Taubenschläge in Wien, 
+          das Adoptieren von geretteten Laborratten oder den Erwerb von Patenschaften für bedrohte Tierarten.<br><br>
+          Das Pissy Tierheim liegt seit der Erstehung im 15. Bezirk, dem Herzstück von Wien.
+        </p>
       </div>
     </div>
-    <div class="col-4 col-12">
-      <div class="image">
-        <p><img src="Rattis.jpeg" alt="Ratten im Tierheim Foto" style="width:100px; height:50px;" class="center"></img></p>
+
+    <!-- BILD SPALTE -->
+    <div class="col-12 col-md-4">
+      <div class="image text-center">
+        <img src="Rattis.jpg" 
+             alt="Ratten im Tierheim Foto" 
+             class="img-fluid rounded">
+      </div>
     </div>
+
   </div>
 </div>
-  
-
-<!-- <div class ="text-div">
-    <p class ="info-text"> Wir sind das Pissy Tierheim!</br> </br>
-  Das Pissy Tierheim gibt es seit September 2025 und ist ein rein fiktionaler Ort in den Köpfen von Helm und Laris. </br></br>
-  Seit Jahren beschäftigen wir uns aktiv mit dem Tierschutz; sei es durch das Füttern von Stadttauben, das Adoptieren von geretteten Laborratten oder den Erwerb von Patenschaften für bedrohte Tierarten.<br></br>
-  Das Pissy Tierheim liegt seit der Erstehung im 15. Bezirk, dem Herzstück von Wien.</p>
-
-  
-</div> -->
-
-
-
-
-
-
-
 
 
