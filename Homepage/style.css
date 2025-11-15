@@ -135,5 +135,15 @@ button:hover {
         background-color: #242170ff;
     }
 
+.img2 {
+ text-align: center; 
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center; 
+    padding: 20px;
+    
+}
 
 
