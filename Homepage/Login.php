@@ -10,7 +10,8 @@ include_once('header.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($_POST['uname'] === 'larissa' && $_POST['psw'] === 'pisse') {
-    header('Location: https://undojesus.org');
+    /* header('Location: https://undojesus.org'); */
+    header('Location: MitarbeiterView.php');
     exit;
   } else {
     $error = "Falscher Benutzername oder Passwort!";
