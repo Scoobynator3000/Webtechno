@@ -49,7 +49,7 @@ include_once('header.php');
   <br>
   Hast du ein Tier in Not gefunden oder warst Zeuge von Tierquälerei? </br>Dann findest du auf unserer <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php">Tiernotruf-Seite </a>Hilfe! </br></br>
   <br>
-  Wenn du mehr über uns und unsere Entstehungsgeschichte erfahren möchtest, dann besuch gerne unsere<a href="http://localhost/Webtechno/Webtechno/Homepage/AboutUs.php">About-Us Page! </a> </br></br>
+  Wenn du mehr über uns und unsere Entstehungsgeschichte erfahren möchtest, dann besuch gerne unsere <a href="http://localhost/Webtechno/Webtechno/Homepage/AboutUs.php">About-Us Page! </a> </br></br>
   <br></p>
 
 </div>
@@ -57,6 +57,9 @@ include_once('header.php');
 
 
 
-
 </body>
+
+
+
+<?php include 'footer.php'; ?>
 </html>

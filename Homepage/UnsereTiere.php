@@ -51,4 +51,5 @@ include_once('header.php');
 
 
 </body>
+<?php include 'footer.php'; ?>
 </html>

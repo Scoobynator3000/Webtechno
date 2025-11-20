@@ -26,9 +26,10 @@ include_once('header.php');
   </h1>
    
 </div>
-
+   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> </br></br>
+  <br><br></p>
 <div class="img-box">
-    
+
  <img src="Ratten-Kleintiere.jpeg" alt="Ratten" style="width:500px; height:270px;">
 </div>
 
@@ -37,4 +38,5 @@ include_once('header.php');
 
 
 </body>
+<?php include 'footer.php'; ?>
 </html>

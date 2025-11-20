@@ -24,9 +24,10 @@ include_once('header.php');
     <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
   </h1>
 </div>
-
+   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> </br></br>
+  <br><br></p>
 <div class="img-box">
-    
+
  <img src="Vogel-Vögel.jpg" alt="Vögel" style="width:500px; height:270px;">
 </div>
 
@@ -35,4 +36,5 @@ include_once('header.php');
 
 
 </body>
+<?php include 'footer.php'; ?>
 </html>

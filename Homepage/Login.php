@@ -9,8 +9,7 @@ include_once('header.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if ($_POST['uname'] === 'larissa' && $_POST['psw'] === 'pisse') {
-    /* header('Location: https://undojesus.org'); */
+  if ($_POST['uname'] === 'user' && $_POST['psw'] === 'pw') {
     header('Location: MitarbeiterView.php');
     exit;
   } else {
@@ -59,12 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </div>
 </div>
-
-
-
-
-
+</div>
 
 
 </body>
+<?php include 'footer.php'; ?>
 </html>
