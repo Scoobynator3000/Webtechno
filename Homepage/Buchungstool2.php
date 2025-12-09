@@ -17,6 +17,7 @@ include_once('header.php');
   .calendar-table td { cursor: pointer; }
   .today { background-color: #ffeb3b; font-weight: bold; }
   .selected { background-color: #2196F3; color: white; }
+  .booked { background-color: #ff6b6b; color: white; cursor: not-allowed; }
 </style>
 
 
@@ -100,9 +101,9 @@ include_once('header.php');
           
           <label for="name" style="display: block; margin-top: 15px; font-weight: bold;">Dein Name:</label>
           <input type="text" id="name" placeholder="Vorname und Nachname" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
-          
-          <label for="email" style="display: block; margin-top: 15px; font-weight: bold;">Deine Email:</label>
-          <input type="email" id="email" placeholder="deine@email.com" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+
+           <label for="tierart" style="display: block; margin-top: 15px; font-weight: bold;">Tierart:</label>
+          <input type="text" id="tierart" placeholder="An welcher Tierart sind Sie interessiert?" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
           
           <button id="bookBtn" style="margin-top: 20px; padding: 12px 30px; background-color: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
             Termin buchen
@@ -122,6 +123,7 @@ include_once('header.php');
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let selectedCell = null;
+let bookedDates = []; // Array für gebuchte Termine
 
 function renderCalendar(month, year) {
   const monthNames = [
@@ -155,6 +157,7 @@ function renderCalendar(month, year) {
         break;
       } else {
         cell.textContent = date;
+        const dateString = `${date}.${month + 1}.${year}`;
 
         // Heute hervorheben
         if (
@@ -165,23 +168,27 @@ function renderCalendar(month, year) {
           cell.classList.add("today");
         }
 
-         // Klickaktion
-        cell.addEventListener("click", (function(currentDate) {
-          return function () {
-            if (selectedCell) {
-              selectedCell.classList.remove("selected");
-            }
-            selectedCell = cell;
-            cell.classList.add("selected");
+        // Prüfe ob Datum gebucht ist
+        if (bookedDates.includes(dateString)) {
+          cell.classList.add("booked");
+        } else {
+          // Klickaktion nur wenn nicht gebucht
+          cell.addEventListener("click", (function(currentDate) {
+            return function () {
+              if (selectedCell) {
+                selectedCell.classList.remove("selected");
+              }
+              selectedCell = cell;
+              cell.classList.add("selected");
 
-            // Ausgewähltes Datum anzeigen
-            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-            const selectedDateText = `${currentDate}. ${monthNames[month]} ${year}`;
-            document.getElementById("selected-date-display").textContent = selectedDateText;
+              const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+              const selectedDateText = `${currentDate}. ${monthNames[month]} ${year}`;
+              document.getElementById("selected-date-display").textContent = selectedDateText;
 
-            console.log("Ausgewählter Tag:", currentDate, month + 1, year);
-          };
-        })(date));
+              console.log("Ausgewählter Tag:", currentDate, month + 1, year);
+            };
+          })(date));
+        }
         
         row.appendChild(cell);
         date++;
@@ -213,6 +220,39 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 
 // Erste Darstellung
 renderCalendar(currentMonth, currentYear);
+
+// Buchungs-Funktion
+document.getElementById("bookBtn").addEventListener("click", () => {
+  const name = document.getElementById("name").value;
+  const selectedDate = document.getElementById("selected-date-display").textContent;
+  const statusDiv = document.getElementById("booking-status");
+
+  if (!name.trim()) {
+    statusDiv.textContent = "❌ Bitte gib deinen Namen ein!";
+    statusDiv.style.color = "red";
+    return;
+  }
+
+  if (selectedDate === "Kein Datum ausgewählt") {
+    statusDiv.textContent = "❌ Bitte wähle ein Datum!";
+    statusDiv.style.color = "red";
+    return;
+  }
+
+  // Termin als gebucht speichern
+  const dateString = `${selectedCell.textContent}.${currentMonth + 1}.${currentYear}`;
+  bookedDates.push(dateString);
+
+  const tierart = document.getElementById("tierart").value;
+  statusDiv.textContent = `✅ Buchung erfolgreich! ${name}, dein Termin am ${selectedDate} für ${tierart} wurde gebucht.`;
+  statusDiv.style.color = "green";
+
+  // Kalender neu rendern um rote Markierung zu zeigen
+  renderCalendar(currentMonth, currentYear);
+
+  // Input löschen
+  document.getElementById("name").value = "";
+});
 </script>
 
 <?php include 'footer.php'; ?>
