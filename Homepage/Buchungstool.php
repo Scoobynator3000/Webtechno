@@ -10,9 +10,6 @@ include_once('header.php');
 </div>
 
 <div class="text-div">
-        <p class="info-text">
-            Derzeit sind keine Termine verbucht.
-</p>
 <br>
    <label for="months">Monat:</label>
 
@@ -37,7 +34,12 @@ include_once('header.php');
   <option value="2025">2025</option>
   <option value="2026">2026</option>
   <option value="2027">2027</option>
+
 </select> 
+
+        <p class="info-text">
+            Aus Kapazitätsgründen ist zurzeit leider nur eine Buchung pro Tag möglich.
+</p>
 
 
 <div class="container">
