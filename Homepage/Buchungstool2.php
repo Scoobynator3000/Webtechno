@@ -2,212 +2,219 @@
 <?php $PageTitle = "Larissa"; 
 include_once('header.php'); 
 ?> 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style>
+  .calendar { border: 1px solid #ddd; padding: 10px; border-radius: 4px; }
+  .calendar-header { display: flex; margin-bottom: 5px; gap: 20px; }
+  .calendar-table { width: 50%; border-collapse: collapse; }
+  .calendar-table th, .calendar-table td { padding: 5px; text-align: center; border: 1px solid #ddd; }
+  .calendar-table td { cursor: pointer; }
+  .today { background-color: #ffeb3b; font-weight: bold; }
+  .selected { background-color: #2196F3; color: white; }
+</style>
+
+
 <div class="container">
 
 <div>
         
     <h1>Wähle bitte unten deinen passenden Termin aus: </h1>
 </div>
-<p class="big-text"> Aus Kapazitätsgründen ist zurzeit leider nur eine Buchung pro Tag möglich. </p>
 
-<div class="calendar-wrapper">
-  <div class="calendar">
-    <div class="calendar-header">
-      <button id="prev">◀</button>
-      <span id="month"></span> <span id="year"></span>
-      <button id="next">▶</button>
-    </div>
+<div class="text-div">
+<br>
+   <label for="months">Monat:</label>
 
-    <table class="calendar-table">
-      <thead>
-        <tr>
-          <th>Mo</th>
-          <th>Di</th>
-          <th>Mi</th>
-          <th>Do</th>
-          <th>Fr</th>
-          <th>Sa</th>
-          <th>So</th>
-        </tr>
-      </thead>
-      <tbody id="body"></tbody>
-    </table>
+<select name="months" id="months">
+  <option value="Januar">Januar</option>
+  <option value="Februar">Febrauar</option>
+  <option value="März">März</option>
+  <option value="April">April</option>
+  <option value="Mai">Mai</option>
+  <option value="Juni">Juni</option>
+  <option value="Juli">Juli</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="Oktober">Oktober</option>
+  <option value="November">November</option>
+  <option value="Dezember">Dezember</option>
+</select> 
 
-    <div id="inputArea" style="margin-top: 15px; display: none;">
-      <p id="selectedInfo">Kein Tag ausgewählt</p>
-      <input id="username" type="text" placeholder="Dein Name">
-      <button id="saveBtn">Verbuchen</button>
+   <label for="Jahr">Jahr:</label>
+
+<select name="Jahr" id="Jahr">
+  <option value="2025">2025</option>
+  <option value="2026">2026</option>
+  <option value="2027">2027</option>
+
+</select> 
+
+        <p class="info-text">
+            Aus Kapazitätsgründen ist zurzeit leider nur eine Buchung pro Tag möglich.
+</p>
+
+
+<div class="container">
+  <div class="text-div">
+    <div class="row align-items-start">
+      <div class="col">
+
+        <!-- Interaktiver Kalender -->
+        <div class="calendar">
+          <div class="calendar-header">
+            <button id="prevBtn">◀</button>
+            <span id="month"></span> <span id="year"></span>
+            <button id="nextBtn">▶</button>
+          </div>
+
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th>Mo</th>
+                <th>Di</th>
+                <th>Mi</th>
+                <th>Do</th>
+                <th>Fr</th>
+                <th>Sa</th>
+                <th>So</th>
+              </tr>
+            </thead>
+            <tbody id="calendar-body"></tbody>
+          </table>
+        </div>
+
+                <!-- Ausgewähltes Datum anzeigen -->
+        <div id="selected-date-display" style="margin-top: 20px; font-size: 18px; font-weight: bold; color: #2196F3;">
+          Kein Datum ausgewählt
+        </div>
+
+        <!-- Buchungsformular -->
+        <div style="margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9;">
+          <h3>Buchung abschließen</h3>
+          
+          <label for="name" style="display: block; margin-top: 15px; font-weight: bold;">Dein Name:</label>
+          <input type="text" id="name" placeholder="Vorname und Nachname" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+          
+          <label for="email" style="display: block; margin-top: 15px; font-weight: bold;">Deine Email:</label>
+          <input type="email" id="email" placeholder="deine@email.com" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+          
+          <button id="bookBtn" style="margin-top: 20px; padding: 12px 30px; background-color: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+            Termin buchen
+          </button>
+          
+          <div id="booking-status" style="margin-top: 15px; font-weight: bold;"></div>
+        </div>
+
+      </div>
     </div>
   </div>
+
+  <?php include 'footer.php'; ?>
 </div>
 
-<style>
-.calendar-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.calendar {
-  max-width: 350px;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  background: #fafafa;
-  font-family: sans-serif;
-  text-align: center;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.calendar-header button {
-  background: #eaeaea;
-  border: 1px solid #ccc;
-  padding: 4px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.calendar-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-}
-
-.calendar-table th {
-  padding: 6px;
-  background: #f0f0f0;
-  border-radius: 6px;
-}
-
-.calendar-table td {
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.today {
-  background: #ffe2a8;
-  border: 1px solid #d6a545;
-  font-weight: bold;
-}
-
-.booked {
-  background: #ff4c4c;
-  border: 1px solid #a94444;
-  color: #fff;
-  font-weight: bold;
-  cursor: default; /* Nicht mehr klickbar */
-}
-</style>
-
 <script>
-let m = new Date().getMonth();
-let y = new Date().getFullYear();
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let selectedCell = null;
 
-let selectedDay = null;
-let booked = {}; // gebuchte Tage: key -> Name oder "geschlossen"
-
-function key(y,m,d){ return `${y}-${m}-${d}`; }
-function isMonday(y,m,d){ return new Date(y,m,d).getDay()===1; }
-
-function render() {
-  const names = [
-    "Januar","Februar","März","April","Mai","Juni",
-    "Juli","August","September","Oktober","November","Dezember"
+function renderCalendar(month, year) {
+  const monthNames = [
+    "Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember"
   ];
 
-  document.getElementById("month").textContent = names[m];
-  document.getElementById("year").textContent = y;
+  document.getElementById("month").textContent = monthNames[month];
+  document.getElementById("year").textContent = year;
 
-  const body = document.getElementById("body");
-  body.innerHTML = "";
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const calendarBody = document.getElementById("calendar-body");
+  calendarBody.innerHTML = "";
 
-  let first = new Date(y, m, 1).getDay();
-  first = first === 0 ? 7 : first;
-  let days = new Date(y, m+1, 0).getDate();
-  const today = new Date();
   let date = 1;
+  const today = new Date();
 
-  for (let i=0;i<6;i++){
+  for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
-    for (let j=1;j<=7;j++){
+
+    for (let j = 1; j <= 7; j++) {
       let cell = document.createElement("td");
-      let index = i*7+j;
 
-      if(index >= first && date <= days){
-        let k = key(y,m,date);
+      const correctedFirstDay = firstDay === 0 ? 7 : firstDay;
 
-        // Montag = geschlossen
-        if(isMonday(y,m,date) && !booked[k]){
-          booked[k] = "geschlossen";
-        }
+      if (i === 0 && j < correctedFirstDay) {
+        cell.innerHTML = "";
+        row.appendChild(cell);
+      } else if (date > daysInMonth) {
+        break;
+      } else {
+        cell.textContent = date;
 
-        // Zelltext & Klasse
-        if(booked[k]){
-          cell.classList.add("booked");
-          if(booked[k]==="geschlossen") cell.textContent = date;
-          else cell.textContent = date + " (" + booked[k] + ")";
-        } else {
-          cell.textContent = date;
-        }
-
-        if(date===today.getDate() && m===today.getMonth() && y===today.getFullYear()){
+        // Heute hervorheben
+        if (
+          date === today.getDate() &&
+          month === today.getMonth() &&
+          year === today.getFullYear()
+        ) {
           cell.classList.add("today");
         }
 
-        // nur klickbar wenn nicht gebucht
-        if(!booked[k]){
-          cell.onclick = () => selectDay(date);
-        }
+         // Klickaktion
+        cell.addEventListener("click", (function(currentDate) {
+          return function () {
+            if (selectedCell) {
+              selectedCell.classList.remove("selected");
+            }
+            selectedCell = cell;
+            cell.classList.add("selected");
 
+            // Ausgewähltes Datum anzeigen
+            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            const selectedDateText = `${currentDate}. ${monthNames[month]} ${year}`;
+            document.getElementById("selected-date-display").textContent = selectedDateText;
+
+            console.log("Ausgewählter Tag:", currentDate, month + 1, year);
+          };
+        })(date));
+        
+        row.appendChild(cell);
         date++;
       }
-
-      row.appendChild(cell);
     }
-    body.appendChild(row);
+
+    calendarBody.appendChild(row);
   }
 }
 
-function selectDay(day){
-  selectedDay = day;
-  const k = key(y,m,day);
-  const info = document.getElementById("selectedInfo");
-
-  if(booked[k]==="geschlossen"){
-    info.textContent = "Das Tierheim hat an diesem Tag nicht geöffnet.";
-    document.getElementById("inputArea").style.display = "none";
-  } else {
-    info.textContent = "Ausgewählter Tag: "+day+"."+(m+1)+"."+y;
-    document.getElementById("inputArea").style.display = "block";
+// Navigation
+document.getElementById("prevBtn").addEventListener("click", () => {
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
   }
-}
+  renderCalendar(currentMonth, currentYear);
+});
 
-document.getElementById("saveBtn").onclick = () => {
-  if(!selectedDay) return;
-  let name = document.getElementById("username").value.trim();
-  if(!name) return;
+document.getElementById("nextBtn").addEventListener("click", () => {
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  renderCalendar(currentMonth, currentYear);
+});
 
-  booked[key(y,m,selectedDay)] = name;
-  document.getElementById("username").value = "";
-  selectedDay = null;
-  document.getElementById("inputArea").style.display = "none";
-  render();
-};
-
-document.getElementById("prev").onclick = () => { m--; if(m<0){m=11;y--} render(); };
-document.getElementById("next").onclick = () => { m++; if(m>11){m=0;y++} render(); };
-
-render();
+// Erste Darstellung
+renderCalendar(currentMonth, currentYear);
 </script>
 
-  <?php include 'footer.php'; ?>    
+<?php include 'footer.php'; ?>
+
+
