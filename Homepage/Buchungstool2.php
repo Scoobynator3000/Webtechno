@@ -3,6 +3,34 @@
 include_once('header.php'); 
 ?> 
 
+<?php
+// POST-Handler und gebuchte Daten müssen vor jeglicher HTML-Ausgabe stehen
+$storageFile = __DIR__ . '/storage.json';
+if (!file_exists($storageFile)) file_put_contents($storageFile, json_encode(new stdClass()));
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (empty($input)) $input = $_POST;
+
+    if (isset($input['date']) && isset($input['name'])) {
+        $booked = json_decode(file_get_contents($storageFile), true) ?: [];
+        $booked[$input['date']] = ['name' => $input['name'], 'tier' => ($input['tier'] ?? '')];
+        file_put_contents($storageFile, json_encode($booked, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'ok']);
+        exit;
+    }
+
+    header('Content-Type: application/json', true, 400);
+    echo json_encode(['status' => 'error', 'message' => 'missing fields']);
+    exit;
+}
+
+// Für das Frontend: gebuchte Daten laden
+$bookedData = json_decode(file_get_contents($storageFile), true) ?: [];
+$bookedDatesForJs = array_keys($bookedData);
+?> 
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
@@ -123,7 +151,7 @@ include_once('header.php');
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let selectedCell = null;
-let bookedDates = []; // Array für gebuchte Termine
+let bookedDates = <?php echo json_encode($bookedDatesForJs); ?>; // PHP füllt bereits gebuchte Termine
 
 function renderCalendar(month, year) {
   const monthNames = [
@@ -224,6 +252,7 @@ renderCalendar(currentMonth, currentYear);
 // Buchungs-Funktion
 document.getElementById("bookBtn").addEventListener("click", () => {
   const name = document.getElementById("name").value;
+  const tierart = document.getElementById("tierart").value;
   const selectedDate = document.getElementById("selected-date-display").textContent;
   const statusDiv = document.getElementById("booking-status");
 
@@ -239,19 +268,59 @@ document.getElementById("bookBtn").addEventListener("click", () => {
     return;
   }
 
-  // Termin als gebucht speichern
   const dateString = `${selectedCell.textContent}.${currentMonth + 1}.${currentYear}`;
-  bookedDates.push(dateString);
 
-  const tierart = document.getElementById("tierart").value;
-  statusDiv.textContent = `✅ Buchung erfolgreich! ${name}, dein Termin am ${selectedDate} für ${tierart} wurde gebucht.`;
-  statusDiv.style.color = "green";
+  // Fehlermeldung, falls Datum schon gebucht
+  if (bookedDates.includes(dateString)) {
+    statusDiv.textContent = "❌ Dieser Tag ist bereits gebucht.";
+    statusDiv.style.color = "red";
+    return;
+  }
 
-  // Kalender neu rendern um rote Markierung zu zeigen
-  renderCalendar(currentMonth, currentYear);
+  // Anfrage senden (keine Vorweg-Änderung von bookedDates)
+  const btn = document.getElementById("bookBtn");
+  btn.disabled = true;
+  btn.textContent = "Speichere...";
 
-  // Input löschen
-  document.getElementById("name").value = "";
+  fetch(window.location.href, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams({ date: dateString, name: name, tier: tierart })
+  })
+  .then(res => res.text())
+  .then(text => {
+    let data = null;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      const start = text.indexOf('{');
+      const end = text.lastIndexOf('}');
+      if (start !== -1 && end !== -1 && end > start) {
+        try { data = JSON.parse(text.substring(start, end + 1)); } catch (e2) { data = null; }
+      }
+    }
+
+    if ((data && data.status === 'ok') || text.includes('"status":"ok"')) {
+      // Nach erfolgreichem Speichern im Frontend eintragen und Kalender neu rendern
+      bookedDates.push(dateString);
+      statusDiv.textContent = `✅ Buchung erfolgreich! ${name}, dein Termin am ${selectedDate} für ${tierart} wurde gebucht.`;
+      statusDiv.style.color = "green";
+      renderCalendar(currentMonth, currentYear);
+      document.getElementById("name").value = "";
+      document.getElementById("tierart").value = "";
+    } else {
+      statusDiv.textContent = "❌ Fehler beim Speichern.";
+      statusDiv.style.color = "red";
+    }
+  })
+  .catch(() => {
+    statusDiv.textContent = "❌ Netzwerkfehler beim Speichern.";
+    statusDiv.style.color = "red";
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = "Termin buchen";
+  });
 });
 </script>
 
