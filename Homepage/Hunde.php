@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <?php
 $PageTitle = "New Page Title";
+require "db.php";
+
+$sql = "SELECT Name, 'Geschätztes Alter', Foto, 'Beschreibung' from hunde";
+$result = $db->query($sql);
 
 function customPageHeader() {
 }
 
 include_once('header.php');
 ?>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
@@ -27,11 +35,21 @@ include_once('header.php');
 </div>
    Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> </br></br>
   <br><br></p>
+
+
+
 <div class="img-box">
     
  <img src="Hund-Hunde.webp" alt="Hund" style="width:500px; height:270px;">
 </div>
-
+<div class ="grid">
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <div class = "card">
+        <img src="<?php echo htmlspecialchars($row["Foto"]); ?>" alt="Hund">
+        <h3><?php echo htmlspecialchars($row["Name"]); ?></h3>
+    </div>
+    <?php endwhile; ?>
+    </div>
 
 
 

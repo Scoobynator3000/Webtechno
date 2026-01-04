@@ -2,6 +2,11 @@
 <?php
 $PageTitle = "New Page Title";
 
+require "db.php";
+
+$sql = "SELECT Name, 'Geschätztes Alter', Foto, 'Beschreibung' from katzen";
+$result = $db->query($sql);
+
 function customPageHeader() {
 }
 
@@ -31,6 +36,15 @@ include_once('header.php');
  
  <img src="Katze-Katzen.jpg" alt="Katze" style="width:500px; height:270px;">
 </div>
+<div class ="grid">
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <div class = "card">
+        <img src="<?php echo htmlspecialchars($row["Foto"]); ?>" alt="Katze">
+        <h3><?php echo htmlspecialchars($row["Name"]); ?></h3>
+    </div>
+    <?php endwhile; ?>
+    </div>
+
 
 
 
