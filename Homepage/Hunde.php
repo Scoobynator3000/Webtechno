@@ -12,9 +12,7 @@ function customPageHeader() {
 include_once('header.php');
 ?>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">

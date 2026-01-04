@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 $PageTitle = "New Page Title";
+require "db.php";
+$sql = "SELECT Name, Foto, 'Beschreibung' from vögel";
+$result = $db->query($sql);
 
 function customPageHeader() {
 }
@@ -30,6 +33,15 @@ include_once('header.php');
 
  <img src="Vogel-Vögel.jpg" alt="Vögel" style="width:500px; height:270px;">
 </div>
+
+<div class ="grid">
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <div class = "card">
+        <img src="<?php echo htmlspecialchars($row["Foto"]); ?>" alt="Vogel">
+        <h3><?php echo htmlspecialchars($row["Name"]); ?></h3>
+    </div>
+    <?php endwhile; ?>
+    </div>
 
 
 
