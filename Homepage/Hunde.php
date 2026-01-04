@@ -45,6 +45,7 @@ include_once('header.php');
       <div class = "card">
         <img src="<?php echo htmlspecialchars($row["Foto"]); ?>" alt="Hund">
         <h3><?php echo htmlspecialchars($row["Name"]); ?></h3>
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/HundInfo.php"> Ansehen
     </div>
     <?php endwhile; ?>
     </div>
