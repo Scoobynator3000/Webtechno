@@ -3,7 +3,7 @@
 $PageTitle = "New Page Title";
 require "db.php";
 
-$sql = "SELECT Name, 'Geschätztes Alter', Foto, 'Beschreibung' from hunde";
+$sql = "SELECT id, Foto, Name from hunde";
 $result = $db->query($sql);
 
 function customPageHeader() {
@@ -45,7 +45,7 @@ include_once('header.php');
       <div class = "card">
         <img src="<?php echo htmlspecialchars($row["Foto"]); ?>" alt="Hund">
         <h3><?php echo htmlspecialchars($row["Name"]); ?></h3>
-        <a href="http://localhost/Webtechno/Webtechno/Homepage/HundInfo.php"> Ansehen
+        <a href="HundInfo.php?id=<?php echo $row['id']; ?>"> Ansehen </a>
     </div>
     <?php endwhile; ?>
     </div>

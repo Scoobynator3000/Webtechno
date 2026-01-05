@@ -9,7 +9,7 @@ if(!isset($_GET["id"])){
 
 $id = (int)$_GET["id"];
 
-$stmt = $db->prepare("SELECT * FROM hunde WHERE id =?");
+$stmt = $db->prepare("SELECT * FROM katzen WHERE id =?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -20,8 +20,8 @@ if($result->num_rows === 0)
     die("Tier nicht gefunden");
 }
 
-$hund = $result->fetch_assoc();
-$PageTitle = $hund["Name"];
+$katze = $result->fetch_assoc();
+$PageTitle = $katze["Name"];
 
 function customPageHeader() {
 }
@@ -30,17 +30,16 @@ include_once('header.php');
 ?>
 <html>
 <body>
-
-<div class="container">
+    <div class="container">
   <div class="row align-items-start">
     
     <div class="text-div">
         <div class="img2">
-          <img src="<?php echo htmlspecialchars($hund['Foto']); ?>" alt="Hund" width="700" height="auto">
+          <img src="<?php echo htmlspecialchars($katze['Foto']); ?>" alt="Katze" width="700" height="auto">
         </div>
-        <h1><?php echo htmlspecialchars($hund['Name']); ?> </h1>
-        <p class="info-text"><?php echo htmlspecialchars($hund['Age']); ?> </p>
-        <p class="info-text"><?php echo htmlspecialchars($hund['Beschreibung']); ?> </p>
+        <h1><?php echo htmlspecialchars($katze['Name']); ?> </h1>
+        <p class="info-text"><?php echo htmlspecialchars($katze['Age']); ?> </p>
+        <p class="info-text"><?php echo htmlspecialchars($katze['Beschreibung']); ?> </p>
 
       
         
@@ -50,8 +49,7 @@ include_once('header.php');
     </div>
   </div>   
 
-
-
+    
 
 </body>
 </html>
