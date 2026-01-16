@@ -7,16 +7,29 @@ function customPageHeader() {
 
 include_once('header.php');
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if ($_POST['uname'] === 'user' && $_POST['psw'] === 'pw') {
-    header('Location: MitarbeiterView.php');
-    exit;
-  } else {
-    $error = "Falscher Benutzername oder Passwort!";
-  }
+    // Benutzername + Passwort sauber holen
+    $uname = trim($_POST['uname'] ?? '');
+    $psw = trim($_POST['psw'] ?? '');
+
+    // Alle Benutzer und ihre Zielseiten
+    $users = [
+        'user' => 'MitarbeiterView.php',
+        'it'   => 'ItView.php'
+    ];
+
+    // Passwort prüfen (hier für alle gleich)
+    $password = 'pw';
+
+    if (isset($users[$uname]) && $psw === $password) {
+        header('Location: ' . $users[$uname]);
+        exit;
+    } else {
+        $error = "Falscher Benutzername oder Passwort!";
+    }
 }
 ?>
+
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
