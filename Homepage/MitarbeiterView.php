@@ -11,8 +11,6 @@ include_once('header.php');
 ?>
 <div class= "text-div">
 <div class="container my-4">
-  <div class="card shadow-sm">
-    <div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
           <h2 class="mb-0">Gebuchte Termine</h2>
@@ -28,13 +26,12 @@ include_once('header.php');
         </div>
       <?php else: ?>
         <div class="table-responsive">
-          <table id="bookingsTable" class="table table-hover align-middle">
+          <table id="bookingsTable">
             <thead class="table-light">
               <tr>
-                <th style="width:20%;">Datum</th>
+                <th style="width:30%;">Datum</th>
                 <th style="width:40%;">Name</th>
                 <th style="width:30%;">Tierart</th>
-                <th style="width:10%;">Aktion</th>
               </tr>
             </thead>
             <tbody>
@@ -49,9 +46,6 @@ include_once('header.php');
                   <td><?php echo htmlspecialchars($info['name'] ?? '-', ENT_QUOTES, 'UTF-8'); ?></td>
                   <td><?php echo htmlspecialchars($info['tier'] ?? '-', ENT_QUOTES, 'UTF-8'); ?></td>
                   <td>
-                    <button class="btn btn-sm btn-outline-danger btn-delete" data-date="<?php echo htmlspecialchars($date, ENT_QUOTES, 'UTF-8'); ?>">
-                      Löschen
-                    </button>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -59,9 +53,7 @@ include_once('header.php');
           </table>
         </div>
       <?php endif; ?>
-    </div>
   </div>
-</div>
 </div>
 
 <script>
@@ -74,19 +66,6 @@ document.getElementById('filterInput')?.addEventListener('input', function () {
   });
 });
 
-// Optional: einfache Löschfunktion (Frontend + POST zum Server nötig)
-document.querySelectorAll('.btn-delete').forEach(btn => {
-  btn.addEventListener('click', function () {
-    if (!confirm('Termin wirklich löschen?')) return;
-    const date = this.dataset.date;
-    fetch(window.location.pathname, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams({ action: 'delete', date: date })
-    })
-    .then(() => location.reload());
-  });
-});
 </script>
 
 <?php include 'footer.php'; ?>

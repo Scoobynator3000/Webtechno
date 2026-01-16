@@ -8,6 +8,20 @@ body {background-color: rgb(233, 237, 239);}
     font-family:verdana; 
   }
 
+.soft-section {
+   background-color: #9ca1de;
+  padding: 3rem;
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+
+  border: 1px solid #e3eee3;
+}
+
+
+
 .left-h1   {color: #171718ff;
     align-items: left;
     margin: 5px;
@@ -259,5 +273,6 @@ footer {
   object-fit: cover;
   border-radius: 8px;
 }
+
 
 
