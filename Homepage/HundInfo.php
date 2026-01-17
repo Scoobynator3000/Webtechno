@@ -44,7 +44,7 @@ include_once('header.php');
 
       
         
-        <p class="info-text"></p>
+        
       </div>
       </div>
     </div>

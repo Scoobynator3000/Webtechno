@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php
 
 require "db.php";
@@ -28,6 +28,7 @@ function customPageHeader() {
 
 include_once('header.php');
 ?>
+<!DOCTYPE html>
 <html>
 <body>
     <div class="container">
