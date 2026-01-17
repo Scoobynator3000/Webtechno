@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if(!isset($_SESSION["role"]) || $_SESSION["role"] !== "mitarbeiter")
+{
+  header("Location: Login.php");
+  exit;
+}
 // Lade gebuchte Termine vor jeglicher Ausgabe
 $storageFile = __DIR__ . '/storage.json';
 $bookedData = [];

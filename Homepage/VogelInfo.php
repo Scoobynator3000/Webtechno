@@ -20,8 +20,8 @@ if($result->num_rows === 0)
     die("Tier nicht gefunden");
 }
 
-$hund = $result->fetch_assoc();
-$PageTitle = $hund["Name"];
+$vogel = $result->fetch_assoc();
+$PageTitle = $vogel["Name"];
 
 function customPageHeader() {
 }
@@ -30,7 +30,18 @@ include_once('header.php');
 ?>
 <html>
 <body>
-    <h1><?php echo htmlspecialchars($hund['Name']); ?> </h1>
+    <div class="text-div">
+        <div class="img2">
+          <img src="<?php echo htmlspecialchars($vogel['Foto']); ?>" alt="vogel" width="700" height="auto">
+        </div>
+        <h1><?php echo htmlspecialchars($vogel['Name']); ?> </h1>
+       
+        <p class="info-text"><?php echo htmlspecialchars($vogel['Beschreibung']); ?> </p>
+
+      
+        
+        
+      </div>
     
 
 </body>

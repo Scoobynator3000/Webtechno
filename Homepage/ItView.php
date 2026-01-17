@@ -1,5 +1,11 @@
 <?php
 session_start(); 
+
+if(!isset($_SESSION["role"]) || $_SESSION["role"] !== "ITmitarbeiter")
+{
+  header("Location: Login.php");
+  exit;
+}
 $PageTitle = "ItView"; 
 include_once('header.php'); 
 ?> 
