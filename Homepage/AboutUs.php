@@ -1,6 +1,36 @@
-<!DOCTYPE html> 
-<?php $PageTitle = "AboutUs"; 
+<?php
+session_start(); 
+
+$PageTitle = "AboutUs"; 
 include_once('header.php'); 
+
+$text = '';
+$bildPfad = '';
+
+// TEXTDATEI LESEN
+if (!empty($_FILES['datei']['tmp_name'])) {
+    $text = file_get_contents($_FILES['datei']['tmp_name']);
+        $_SESSION['text'] = $text;
+} elseif (isset($_SESSION['text'])) {
+    $text = $_SESSION['text'];
+}
+
+// BILD SPEICHERN
+if (!empty($_FILES['bilddatei']['tmp_name'])) {
+
+    if (!is_dir('uploads')) {
+        mkdir('uploads', 0777, true);
+    }
+
+    $bildPfad = 'uploads/' . basename($_FILES['bilddatei']['name']);
+    move_uploaded_file($_FILES['bilddatei']['tmp_name'], $bildPfad);
+
+    $_SESSION['bildPfad'] = $bildPfad;
+
+} elseif (isset($_SESSION['bildPfad'])) {
+    $bildPfad = $_SESSION['bildPfad'];
+}
+
 ?> 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
@@ -12,6 +42,7 @@ include_once('header.php');
 </div>
 
 
+<body>
 <div class="container my-5">
   <div class="row">
     
@@ -47,7 +78,7 @@ include_once('header.php');
   <h1 class="fw-bold">Aktuelle Informationen über das Tierheim</h1>
 </div>
 
-  <p class="text-muted mt-2" style = "text-align:left; margin-left: 110px;" >Dezember 2025 bzw hier kann man das Datum vom Text eingeben</p>
+  <p class="text-muted mt-2" style = "text-align:left; margin-left: 110px;" >Dezember 2025</p>
 
 <div class="container my-5">
   <div class="row">
@@ -56,10 +87,20 @@ include_once('header.php');
     <div class="col-md-7">
         <div class="soft-section">
       <p class="info-text">
-     Hier ist der aktuelle Artikel Text
+   <hr>
+
+<h3>Text</h3>
+<?php if ($text): ?>
+  <pre><?= htmlspecialchars($text) ?></pre>
+<?php else: ?>
+  <p>Kein Text hochgeladen.</p>
+<?php endif; ?>
+
+<hr>
      <br>
      <br>
-     <br>
+
+
     </div>
 </div>
     
@@ -67,17 +108,26 @@ include_once('header.php');
     <!-- Bilder -->
     <div class="col-md-5">
       <div class="img2 mb-3">
-        <img src="Waschbar.jpg" alt="Waschbär Foto" class="img-fluid rounded" style="width:400px; height:280px;">
+                <h3>Bild</h3>
+<?php if ($bildPfad): ?>
+  <img src="<?= $bildPfad ?>" style="max-width:400px;">
+<?php else: ?>
+  <p>Kein Bild hochgeladen.</p>
+<?php endif; ?>
+
       </div>
-        das aktuelle Foto zu dem Text
 
     </div>
+
+
 
   </div>
 </div>
 
 <?php include 'footer.php'; ?>
 
+
+</body>
 
 <style>
 .soft-section {
