@@ -18,20 +18,17 @@ include_once('header.php');
 <div>
         
     <h2>Lernen Sie unsere Vögel kennen:</h2>
-    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Vögel, die ein neues Zuhause suchen.</p>
+    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Vögel, die ein neues Zuhause suchen.
 
-</div>
 
-<div class="img-box">
-     <h1 class="left-h1">
-    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
-  </h1>
-</div>
-   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> </br></br>
+
+   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> 
   <br><br></p>
-<div class="img-box">
+     <p class="big-text-left">
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
+</p>
 
- <img src="Vogel-Vögel.jpg" alt="Vögel" style="width:500px; height:270px;">
+
 </div>
 
 <div class ="grid">

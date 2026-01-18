@@ -17,7 +17,7 @@ include_once('header.php');
   <p class="big-text" style = "text-align:left;">An welcher Tierart sind Sie interessiert?</p>
 </div>
 
-<
+
 <div class="img-box d-flex flex-wrap justify-content-start gap-4">
 
     <div class="img-item text-center">

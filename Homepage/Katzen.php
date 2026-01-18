@@ -21,20 +21,16 @@ include_once('header.php');
 <div>
         
     <h2>Lernen Sie unsere Katzen kennen:</h2>
-    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Katzen, die ein neues Zuhause suchen.</p>
+    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Katzen, die ein neues Zuhause suchen.
 
-</div>
 
-<div class="img-box">
-     <h1 class="left-h1">
-    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
-  </h1>
-</div>
-   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool2.php"> Unser Buchungstool </a> </br></br>
+   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool2.php"> Unser Buchungstool </a> 
   <br><br></p>
-<div class="img-box">
  
- <img src="Katze-Katzen.jpg" alt="Katze" style="width:500px; height:270px;">
+     <p class="big-text-left">
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
+  </p>
+
 </div>
 <div class ="grid">
     <?php while ($row = $result->fetch_assoc()): ?>

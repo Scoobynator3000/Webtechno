@@ -18,22 +18,18 @@ include_once('header.php');
 
 <div>
         
-    <h2>Lernen Sie unsere Kleintiere kennen:</h2>
-    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Kleintiere, die ein neues Zuhause suchen.</p>
+    <h2 style="margin: 20px;">Lernen Sie unsere Kleintiere kennen:</h2>
+    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Kleintiere, die ein neues Zuhause suchen.<br>
 
-</div>
 
-<div class="img-box">
-  <h1 class="left-h1">
-    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
-  </h1>
-   
-</div>
-   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> </br></br>
+   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> 
   <br><br></p>
-<div class="img-box">
 
- <img src="Ratten-Kleintiere.jpeg" alt="Ratten" style="width:500px; height:270px;">
+  
+  <p class="big-text-left">
+    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
+  </p>
+
 </div>
 
 <div class ="grid">
