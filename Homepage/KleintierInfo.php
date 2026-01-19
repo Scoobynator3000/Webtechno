@@ -28,6 +28,9 @@ function customPageHeader() {
 
 include_once('header.php');
 ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
+<link rel="stylesheet" href="style.css">
 <html>
 <body>
 
@@ -38,6 +41,7 @@ include_once('header.php');
           <img src="<?php echo htmlspecialchars($kleintier['Foto']); ?>" alt="Kleintier" width=100% height="auto">
         </div>
         <h1><?php echo htmlspecialchars($kleintier['Name']); ?> </h1>
+         <p class="info-text"> Vermittelbarkeitsstatus: <?php echo htmlspecialchars($kleintier['Vermittelbar']); ?> </p>
        
         <p class="info-text"><?php echo htmlspecialchars($kleintier['Beschreibung']); ?> </p>
 

@@ -17,28 +17,34 @@ include_once('header.php');
 <div>
         
     <h2>Willkommen auf der Tierheim Homepage! </h2>
-<p><img src="Homepage-Foto.png" alt="Homepage Foto" style="width:1700px; height:260px;" align-items: left;></p>
+<p><img src="Homepage-Foto.png" alt="Homepage Foto" style="max-width: 100%; height:auto;" align-items: center;></p>
 </div>
 
 
-<div class="img-box">
-   <h1 class="left-h1" font-decoration: underlined;>
+<div class="row text-center">
+  <div class="col-lg-4 col-md-6 col-sm-12">
+   <h1 class="h1" font-decoration: underlined;>
     1300
   </h1>
   vermittelte Tiere im Jahr <br>
+  
   <img src="Dackel.png" alt="Dackel" style="width:300px; height:270px;">
-
-   <h1 class="left-h1">
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-12">
+   <h1 class="h1">
     2300
-</h1>
+      </h1>
   Tiere in unsere Obhut  <br>
   <img src="Katze.png" alt="Dackel" style="width:300px; height:270px;">
-
-    <h1 class="left-h1">
+  </div>
+  <div class="col-lg-4 col-md-12 col-sm-12">
+    <h1 class="h1">
     500
-</h1>
+  </h1>
   Wildtiere gerettet  <br>
   <img src="Luchs.png" alt="Dackel" style="width:300px; height:270px;">
+  </div>
+
 </div>
 
 

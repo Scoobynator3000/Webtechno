@@ -82,26 +82,26 @@ h2   {color: rgb(25, 25, 127);
   gap: 2px;  
 }
 .text-div {
-  width: 1400px;
+  width: 100%;
   background-color: #ffffffff;
   border: 5px #5b82b6ff;
   border-radius: 20px;
-  padding: 2px;
-  margin: 2px;
-
+  padding: 20px;
+  
+  
   gap: 2px;  
-   margin-left: 30px;
+   
 }
 
 
 .img-box {
-  width: 1400px;
+  width: 100%;
   border: 2px solid #5b82b6ff;
   background-color: #ffffffff;
   border-radius: 25px;
   padding: 10px;
   margin-left: 25px;
-  display: flex;
+  
   align-items: center;
   text-align: center;
   gap: 10px;

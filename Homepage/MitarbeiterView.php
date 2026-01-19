@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if(!isset($_SESSION["role"]) || $_SESSION["role"] !== "mitarbeiter")
 {
   header("Location: Login.php");
@@ -16,6 +17,10 @@ if (file_exists($storageFile)) {
 $PageTitle = "Gebuchte Termine";
 include_once('header.php');
 ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
+<link rel="stylesheet" href="style.css">
+
 <div class= "text-div">
 <div class="container my-4">
       <div class="d-flex justify-content-between align-items-center mb-3">

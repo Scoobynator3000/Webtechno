@@ -28,8 +28,13 @@ function customPageHeader() {
 
 include_once('header.php');
 ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
+<link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
+
 <html>
+
 <body>
     <div class="container">
   <div class="row align-items-start">
@@ -40,6 +45,7 @@ include_once('header.php');
         </div>
         <h1><?php echo htmlspecialchars($katze['Name']); ?> </h1>
         <p class="info-text"> <img src="Age.png" alt="Alter" class="img-fluid rounded" style="width:50px; height:40px;"> <?php echo htmlspecialchars($katze['Age']); ?> </p>
+           <p class="info-text"> Vermittelbarkeitsstatus: <?php echo htmlspecialchars($katze['vermittelbar']); ?> </p>
         <p class="info-text"><?php echo htmlspecialchars($katze['Beschreibung']); ?> </p>
 
       
