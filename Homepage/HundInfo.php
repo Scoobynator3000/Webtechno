@@ -39,7 +39,7 @@ include_once('header.php');
           <img src="<?php echo htmlspecialchars($hund['Foto']); ?>" alt="Hund" width="700" height="auto">
         </div>
         <h1><?php echo htmlspecialchars($hund['Name']); ?> </h1>
-        <p class="info-text"><?php echo htmlspecialchars($hund['Age']); ?> </p>
+        <p class="info-text"> <img src="Age.png" alt="Alter" class="img-fluid rounded" style="width:50px; height:40px;"> <?php echo htmlspecialchars($hund['Age']); ?> </p>
         <p class="info-text"><?php echo htmlspecialchars($hund['Beschreibung']); ?> </p>
 
       
