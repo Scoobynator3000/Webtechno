@@ -91,7 +91,6 @@
         <a href="http://localhost/Webtechno/Webtechno/Homepage/index.php" class="button">Homepage</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Unsere Tiere</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/AboutUs.php" class="button">About Us</a>
-        <a href="http://localhost/Webtechno/Webtechno/Homepage/News.php" class="button">News</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/Tiernotruf.php" class="button">Tiernotruf</a>
         <a href="http://localhost/Webtechno/Webtechno/Homepage/Login.php" class="button">Login</a>
 
