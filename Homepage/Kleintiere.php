@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
-$PageTitle = "New Page Title";
+$PageTitle = "Unsere Kleintiere";
 require "db.php";
-$sql = "SELECT * from kleintiere";
+
+// SQL bleibt SELECT *, Art ist damit automatisch enthalten
+$sql = "SELECT * FROM kleintiere";
 $result = $db->query($sql);
 
 function customPageHeader() {
@@ -15,38 +17,30 @@ include_once('header.php');
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-utilities.min.css">
 <link rel="stylesheet" href="style.css">
 
-
 <div>
-        
     <h2 style="margin: 20px;">Lernen Sie unsere Kleintiere kennen:</h2>
-    <p class="big-text"> Auf dieser Seite sehen Sie tagesaktuell alle Kleintiere, die ein neues Zuhause suchen.<br>
+    <p class="big-text">
+        Auf dieser Seite sehen Sie tagesaktuell alle Kleintiere, die ein neues Zuhause suchen.<br>
+        Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: 
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool2.php">Unser Buchungstool</a>
+        <br><br>
+    </p>
 
-
-   Wenn du an einem Tier interessiert bist, dann buche gerne hier einen Termin: <a href="http://localhost/Webtechno/Webtechno/Homepage/Buchungstool.php"> Unser Buchungstool </a> 
-  <br><br></p>
-
-  
-  <p class="big-text-left">
-    <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
-  </p>
-
+    <p class="big-text-left">
+        <a href="http://localhost/Webtechno/Webtechno/Homepage/UnsereTiere.php" class="button">Zurück zur Übersicht</a>
+    </p>
 </div>
 
-<div class ="grid">
+<div class="grid">
     <?php while ($row = $result->fetch_assoc()): ?>
-      <div class = "card">
-        <img src="<?php echo htmlspecialchars($row["Foto"]); ?>" alt="Kleintiere">
-        <h3><?php echo htmlspecialchars($row["Name"]); ?></h3>
-        <a href="KleintierInfo.php?id=<?php echo $row['id']; ?>"> Ansehen </a>
-    </div>
+        <div class="card">
+            <img src="<?= htmlspecialchars($row["Foto"]); ?>" alt="Kleintier">
+            <h3><?= htmlspecialchars($row["Name"]); ?></h3>
+            <p><strong>Art:</strong> <?= htmlspecialchars($row["Art"]); ?></p>
+            <a href="KleintierInfo.php?id=<?= $row['id']; ?>">Ansehen</a>
+        </div>
     <?php endwhile; ?>
-    </div>
-
-
-
-
-
-
+</div>
 
 </body>
 <?php include 'footer.php'; ?>

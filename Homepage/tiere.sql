@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Jan 2026 um 20:40
+-- Erstellungszeit: 19. Jan 2026 um 09:37
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.2.12
 
@@ -76,8 +76,8 @@ INSERT INTO `ituser` (`id`, `ITmitarbeiter`, `ITpw`) VALUES
 CREATE TABLE `katzen` (
   `ID` int(11) NOT NULL,
   `Name` text NOT NULL,
-  ` Age` int(11) NOT NULL,
-  `Freigänger` tinyint(1) NOT NULL,
+  `Age` int(11) NOT NULL,
+  `Freiganger` tinyint(1) NOT NULL,
   `vermittelbar` tinyint(1) NOT NULL,
   `Beschreibung` text NOT NULL,
   `Foto` varchar(255) DEFAULT NULL
@@ -87,8 +87,8 @@ CREATE TABLE `katzen` (
 -- Daten für Tabelle `katzen`
 --
 
-INSERT INTO `katzen` (`ID`, `Name`, ` Age`, `Freigänger`, `vermittelbar`, `Beschreibung`, `Foto`) VALUES
-(1, 'Riso & Helmi', 24, 1, 0, 'Riso und Helmi sind zwei sehr unterschiedliche Katzen, die sich allerdings wunderbar ergänzen und nur gemeinsam in ein neues Zuhause ziehen möchten.\r\n\r\nHelmi ist ein entzückender rot-weißer Wirbelwind, der alles mit vollem Körpereinsatz angeht. Ob Spielen, Erkunden oder Kuscheln – Helmi ist immer zu 100 % dabei. Sie ist sehr liebesbedürftig, sucht intensiv den Kontakt zu seinen Menschen und braucht viel Beschäftigung und Action. Still sitzen ist nichts für sie, denn ihre Neugier und ihr Bewegungsdrang wollen täglich ausgelebt werden.\r\n\r\nRiso ist der gemütlichere Teil dieses Duos. Der hübsche Britisch-Mix liebt es zu plaudern, zu kuscheln und die Nähe ihrer Menschen zu genießen. Sie spielt und rauft gerne mit Helmi, weiß aber auch, wann genug ist, und zieht sich dann lieber zum Entspannen zurück.', 'adoptiere\\katzen\\Riso_Helmi.jpg'),
+INSERT INTO `katzen` (`ID`, `Name`, `Age`, `Freiganger`, `vermittelbar`, `Beschreibung`, `Foto`) VALUES
+(1, 'Riso & Helmi', 24, 0, 0, 'Riso und Helmi sind zwei sehr unterschiedliche Katzen, die sich allerdings wunderbar ergänzen und nur gemeinsam in ein neues Zuhause ziehen möchten.\r\n\r\nHelmi ist ein entzückender rot-weißer Wirbelwind, der alles mit vollem Körpereinsatz angeht. Ob Spielen, Erkunden oder Kuscheln – Helmi ist immer zu 100 % dabei. Sie ist sehr liebesbedürftig, sucht intensiv den Kontakt zu seinen Menschen und braucht viel Beschäftigung und Action. Still sitzen ist nichts für sie, denn ihre Neugier und ihr Bewegungsdrang wollen täglich ausgelebt werden.\r\n\r\nRiso ist der gemütlichere Teil dieses Duos. Der hübsche Britisch-Mix liebt es zu plaudern, zu kuscheln und die Nähe ihrer Menschen zu genießen. Sie spielt und rauft gerne mit Helmi, weiß aber auch, wann genug ist, und zieht sich dann lieber zum Entspannen zurück.', 'adoptiere\\katzen\\Riso_Helmi.jpg'),
 (2, 'Fabi', 25, 1, 0, 'Fabi ist ein freundlicher, aufgeweckter Kater mit großem Entdeckergeist. Er ist sehr neugierig, immer unterwegs und möchte bei allem dabei sein. Dabei hat er allerdings auch einen ausgeprägten eigenen Kopf – die Dinge sollten idealerweise nach seinen Vorstellungen laufen. Wird ihm etwas zu viel oder läuft nicht in seinem Sinne, kann er durchaus unwirsch reagieren und das klar kommunizieren.\r\n\r\n', 'adoptiere\\katzen\\Fabi.jpg'),
 (3, 'Bärbel', 2, 1, 1, 'Bärbel ist eine neugierige und aufmerksame Katzendame, die viel Interesse an ihrer Umgebung zeigt. Im Zimmer sitzt sie oft bei der Tür und beobachtet genau, was draußen passiert – sie wäre also in einem Zuhause mit mehr Bewegungsfreiheit bestimmt glücklich.\r\n\r\nKommt man zu ihr, streift sie einem manchmal freundlich um die Beine und sucht vorsichtige Nähe. Berührungen lässt sie punktuell zu, doch schnell wird ihr körperliche Nähe zu viel. Dann zeigt sie deutlich, dass sie Abstand möchte und kann auch wehrhaft reagieren. Hochheben oder ausgiebiges Kuscheln gehören derzeit nicht zu ihrem Repertoire.', 'adoptiere\\katzen\\Bärbel.jpg');
 
@@ -114,7 +114,7 @@ CREATE TABLE `kleintiere` (
 INSERT INTO `kleintiere` (`id`, `Name`, `Art`, `Vermittelbar`, `Beschreibung`, `Foto`) VALUES
 (1, 'Pesto', 'Ratte', 0, 'Aufgrund eines zu frechen Charakters leider nicht vermittelbar.', 'adoptiere\\kleintiere\\Pesto.jpg'),
 (2, 'Schnuppi', 'Hamster', 1, 'Die kleine Hamsterdame Schnuppi sucht nach einem schönen neuen Zuhause mit einem geräumigen und spannend eingericheten Gehege! ', 'adoptiere\\kleintiere\\Schnuppi.jpg'),
-(3, 'Konrad', 'Wühlmaus', 0, 'Wühlmäsuse sind leider keine Haustiere', 'adoptiere\\kleintiere\\Konrad.jpg');
+(3, 'Konrad', 'Wühlmaus', 0, 'Konrad wurde verletzt aufgefunden und wird von unserem Team gepflegt, steht aber nicht zur Vermittlung frei.', 'adoptiere\\kleintiere\\Konrad.jpg');
 
 -- --------------------------------------------------------
 
@@ -156,8 +156,8 @@ CREATE TABLE `vögel` (
 --
 
 INSERT INTO `vögel` (`id`, `Name`, `Art`, `Vermittelbar`, `Beschreibung`, `Foto`) VALUES
-(1, 'babs', 'so eiun toller vogel wow', 1, 'jaja die vögel', 'adoptiere\\vogel\\Babs.jpg'),
-(2, 'taube', 'ja weil taube', 0, 'he voll lieb ja', 'adoptiere\\vogel\\Taube.jpg');
+(1, 'Barbara', 'Wellensittich', 1, 'Barbara braucht viel Vorerfahrung und einen sicheren Besitzer, der sie auch medizinisch versorgen kann.', 'adoptiere\\vogel\\Babs.jpg'),
+(2, 'Diana', 'Taube', 0, 'Diana kann zurzeit leider nicht vermittelt werden.', 'adoptiere\\vogel\\Taube.jpg');
 
 --
 -- Indizes der exportierten Tabellen
