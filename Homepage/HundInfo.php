@@ -36,7 +36,7 @@ include_once('header.php');
     
     <div class="text-div">
         <div class="img2">
-          <img src="<?php echo htmlspecialchars($hund['Foto']); ?>" alt="Hund" width="700" height="auto">
+          <img src="<?php echo htmlspecialchars($hund['Foto']); ?>" alt="Hund" width=100% height="auto">
         </div>
         <h1><?php echo htmlspecialchars($hund['Name']); ?> </h1>
         <p class="info-text"> <img src="Age.png" alt="Alter" class="img-fluid rounded" style="width:50px; height:40px;"> <?php echo htmlspecialchars($hund['Age']); ?> </p>

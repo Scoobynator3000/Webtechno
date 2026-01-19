@@ -30,9 +30,12 @@ include_once('header.php');
 ?>
 <html>
 <body>
+
+<div class="container">
+  <div class="row align-items-start">
     <div class="text-div">
         <div class="img2">
-          <img src="<?php echo htmlspecialchars($kleintier['Foto']); ?>" alt="Kleintier" width="700" height="auto">
+          <img src="<?php echo htmlspecialchars($kleintier['Foto']); ?>" alt="Kleintier" width=100% height="auto">
         </div>
         <h1><?php echo htmlspecialchars($kleintier['Name']); ?> </h1>
        
@@ -42,6 +45,8 @@ include_once('header.php');
         
         
       </div>
+       </div>
+    </div>
     
 
 </body>
