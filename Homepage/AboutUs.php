@@ -89,9 +89,9 @@ if (!empty($_FILES['bilddatei']['tmp_name'])) {
       <p class="info-text">
    <hr>
 
-<h3>Text</h3>
+<h3>Aktuelle Tierheim-Informationen</h3>
 <?php if ($text): ?>
-  <pre><?= htmlspecialchars($text) ?></pre>
+  <pre style="font-family: Verdana, sans-serif; font-size: 20px;"><?= htmlspecialchars($text) ?></pre>
 <?php else: ?>
   <p>Kein Text hochgeladen.</p>
 <?php endif; ?>
@@ -108,7 +108,6 @@ if (!empty($_FILES['bilddatei']['tmp_name'])) {
     <!-- Bilder -->
     <div class="col-md-5">
       <div class="img2 mb-3">
-                <h3>Bild</h3>
 <?php if ($bildPfad): ?>
   <img src="<?= $bildPfad ?>" style="max-width:400px;">
 <?php else: ?>
