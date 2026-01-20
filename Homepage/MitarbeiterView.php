@@ -66,6 +66,7 @@ include_once('header.php');
         </div>
       <?php endif; ?>
   </div>
+  <a href="Logout.php" class="button">Logout</a>
 </div>
 
 <script>

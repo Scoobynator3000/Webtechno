@@ -37,6 +37,8 @@ include_once('header.php');
   <button type="submit" class="btn btn-primary mt-3">Hochladen</button>
 
 </form>
+<p></p>
+<a href="Logout.php" class="button">Logout</a>
 
 <script>
 document.getElementById('bildInput').addEventListener('change', function () {

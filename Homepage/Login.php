@@ -1,9 +1,21 @@
 
 <?php
 session_start();
+
 $PageTitle = "New Page Title";
 require "db.php";
 include_once('header.php');
+
+if(isset($_SESSION["role"]) && $_SESSION["role"] === "mitarbeiter")
+{
+  header("Location: MitarbeiterView.php");
+  exit;
+}
+else if(isset($_SESSION["role"]) && $_SESSION["role"] === "ITmitarbeiter")
+{
+  header("Location: ItView.php");
+  exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
